@@ -27,19 +27,19 @@ const seedData = async () => {
       Expense.deleteMany({}),
     ]);
 
-    const hashedAdminPassword = await bcrypt.hash("admin123", 10);
-    const hashedEmployeePassword = await bcrypt.hash("emp123", 10);
+    const hashedAdminPassword = await bcrypt.hash("123456", 10);
+    const hashedEmployeePassword = await bcrypt.hash("123456", 10);
 
     const admin = await User.create({
-      name: "Deepak",
-      email: "admindeepak@dxsure.com",
+      name: "Rushi",
+      email: "admin@gmail.com",
       password: hashedAdminPassword,
       role: "admin",
     });
 
     const employee = await User.create({
       name: "Employee User",
-      email: "employee@dxsure.com",
+      email: "employee@gmail.com",
       password: hashedEmployeePassword,
       role: "employee",
     });
