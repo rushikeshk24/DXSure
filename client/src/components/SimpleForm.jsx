@@ -33,7 +33,7 @@ function SimpleForm({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-6 grid gap-4 md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="mb-6 grid gap-5 md:grid-cols-2">
       {fields.map((field) => (
         <div
           key={field.name}
@@ -43,7 +43,7 @@ function SimpleForm({
             <div>
               <label
                 htmlFor={field.name}
-                className="mb-1.5 block text-sm font-medium text-slate-700"
+                className="mb-1.5 block text-sm font-medium text-neutral-300"
               >
                 {field.label}
               </label>
@@ -52,12 +52,12 @@ function SimpleForm({
                 name={field.name}
                 value={formData[field.name] || ""}
                 onChange={handleChange}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 transition duration-200 focus:border-indigo-400 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+                className="w-full rounded-lg border border-white/10 bg-neutral-900/50 px-3.5 py-2.5 text-sm text-white transition duration-200 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 backdrop-blur-sm"
                 required={field.required}
               >
-                <option value="">Select {field.label}</option>
+                <option value="" className="bg-neutral-900 text-neutral-400">Select {field.label}</option>
                 {field.options.map((option) => (
-                  <option key={option.value} value={option.value}>
+                  <option key={option.value} value={option.value} className="bg-neutral-900 text-white">
                     {option.label}
                   </option>
                 ))}
@@ -80,11 +80,11 @@ function SimpleForm({
       ))}
 
       {error ? (
-        <p className="text-sm font-medium text-rose-600 md:col-span-2">{error}</p>
+        <p className="text-sm font-medium text-red-400 md:col-span-2">{error}</p>
       ) : null}
 
-      <div className="md:col-span-2">
-        <Button type="submit" loading={loading}>
+      <div className="pt-2 md:col-span-2">
+        <Button type="submit" loading={loading} className="w-full sm:w-auto">
           {buttonText}
         </Button>
       </div>

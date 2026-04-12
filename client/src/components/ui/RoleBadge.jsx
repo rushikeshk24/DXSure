@@ -4,10 +4,10 @@ function RoleBadge({ role }) {
   return (
     <span
       className={[
-        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold capitalize",
+        "inline-flex items-center rounded-md border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wider",
         isAdmin
-          ? "bg-indigo-100 text-indigo-700"
-          : "bg-emerald-100 text-emerald-700",
+          ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-400"
+          : "border-sky-500/30 bg-sky-500/10 text-sky-400",
       ].join(" ")}
     >
       {role || "unknown"}
