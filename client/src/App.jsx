@@ -2,44 +2,47 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import ProtectedRoute from "./components/ProtectedRoute";
 import LoginPage from "./pages/LoginPage";
+
+// Admin Imports
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import TrackRecordPage from "./pages/admin/TrackRecordPage";
 import RaiseTicketPage from "./pages/admin/RaiseTicketPage";
 import DayPlanViewPage from "./pages/admin/DayPlanViewPage";
-import CreateUserPage from "./pages/admin/CreateUserPage";
 import DayBookPage from "./pages/admin/DayBookPage";
+
+// Employee Imports
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 import ClientEnquiryPage from "./pages/employee/ClientEnquiryPage";
 import ClientFollowPage from "./pages/employee/ClientFollowPage";
 import ClientLeadPage from "./pages/employee/ClientLeadPage";
 import ClientRegistrationPage from "./pages/employee/ClientRegistrationPage";
 import PettyCashPage from "./pages/employee/PettyCashPage";
-import VendorRegistrationPage from "./pages/employee/VendorRegistrationPage";
-import EmployeePaymentPage from "./pages/employee/EmployeePaymentPage";
 import ClientPaymentPage from "./pages/employee/ClientPaymentPage";
 import DayPlanEntryPage from "./pages/employee/DayPlanEntryPage";
 
-const adminLinks = [
-  { to: "/admin", label: "Dashboard" },
-  { to: "/admin/records", label: "Track Record" },
-  { to: "/admin/tickets", label: "Raise Ticket" },
-  { to: "/admin/day-plan", label: "Day Plan View" },
-  { to: "/admin/users", label: "Create User" },
-  { to: "/admin/day-book", label: "Day Book" },
+const operationalLinks = [
+  { to: "/dashboard", label: "Dashboard" },
+  { to: "/enquiry", label: "Enquiry" },
+  { to: "/follow", label: "Follow-up" },
+  { to: "/lead", label: "Lead" },
+  { to: "/registration", label: "Registration" },
+  { to: "/tickets", label: "Ticketing" },
+  { to: "/day-plan", label: "DayPlan" },
+  { to: "/day-book", label: "Day Book" },
+  { to: "/petty-cash", label: "Pettycash" },
+  { to: "/payments", label: "Payments" },
+  { to: "/records", label: "Track Record" },
 ];
 
-const employeeLinks = [
-  { to: "/employee", label: "Dashboard" },
-  { to: "/employee/enquiry", label: "Client Enquiry" },
-  { to: "/employee/follow", label: "Client Follow" },
-  { to: "/employee/lead", label: "Client Lead" },
-  { to: "/employee/registration", label: "Client Registration" },
-  { to: "/employee/petty-cash", label: "Petty Cash Entry" },
-  { to: "/employee/vendor", label: "Vendor Registration" },
-  { to: "/employee/employee-payment", label: "Employee Payment" },
-  { to: "/employee/client-payment", label: "Client Payment" },
-  { to: "/employee/day-plan", label: "Day Plan Entry" },
-];
+function RoleBasedDashboard() {
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+  return user?.role === "admin" ? <AdminDashboard /> : <EmployeeDashboard />;
+}
+
+function RoleBasedDayPlan() {
+  const user = JSON.parse(localStorage.getItem("user") || "null");
+  return user?.role === "admin" ? <DayPlanViewPage /> : <DayPlanEntryPage />;
+}
 
 function App() {
   return (
@@ -47,40 +50,27 @@ function App() {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
 
+        {/* Unified Operational Portal */}
         <Route
-          path="/admin"
+          path="/"
           element={
-            <ProtectedRoute role="admin">
-              <Layout title="Admin" links={adminLinks} />
+            <ProtectedRoute>
+              <Layout title="Operational" links={operationalLinks} />
             </ProtectedRoute>
           }
         >
-          <Route index element={<AdminDashboard />} />
-          <Route path="records" element={<TrackRecordPage />} />
-          <Route path="tickets" element={<RaiseTicketPage />} />
-          <Route path="day-plan" element={<DayPlanViewPage />} />
-          <Route path="users" element={<CreateUserPage />} />
-          <Route path="day-book" element={<DayBookPage />} />
-        </Route>
-
-        <Route
-          path="/employee"
-          element={
-            <ProtectedRoute role="employee">
-              <Layout title="Employee" links={employeeLinks} />
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<EmployeeDashboard />} />
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<RoleBasedDashboard />} />
           <Route path="enquiry" element={<ClientEnquiryPage />} />
           <Route path="follow" element={<ClientFollowPage />} />
           <Route path="lead" element={<ClientLeadPage />} />
           <Route path="registration" element={<ClientRegistrationPage />} />
+          <Route path="tickets" element={<RaiseTicketPage />} />
+          <Route path="day-plan" element={<RoleBasedDayPlan />} />
+          <Route path="day-book" element={<DayBookPage />} />
           <Route path="petty-cash" element={<PettyCashPage />} />
-          <Route path="vendor" element={<VendorRegistrationPage />} />
-          <Route path="employee-payment" element={<EmployeePaymentPage />} />
-          <Route path="client-payment" element={<ClientPaymentPage />} />
-          <Route path="day-plan" element={<DayPlanEntryPage />} />
+          <Route path="payments" element={<ClientPaymentPage />} />
+          <Route path="records" element={<TrackRecordPage />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/login" replace />} />

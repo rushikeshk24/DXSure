@@ -21,11 +21,18 @@ function ClientRegistrationPage() {
   };
 
   return (
-    <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">
-        Client Registration
-      </h2>
-      <SimpleForm
+    <div className="w-full">
+      <div className="mb-8">
+        <h2 className="text-3xl font-extrabold text-[#181c1e] tracking-tighter">
+          Client Registration
+        </h2>
+        <p className="mt-1 text-sm font-medium text-[#43474e]">
+          Onboard structured relationships directly into DB.
+        </p>
+      </div>
+      
+      <section className="mb-8 rounded-xl bg-[#ffffff] shadow-[0_4px_24px_rgba(24,28,30,0.04)] ring-1 ring-[#c4c6cf]/20 p-6 shadow-sm backdrop-blur-md">
+        <SimpleForm
         fields={[
           { name: "name", label: "Name", required: true },
           { name: "email", label: "Email", type: "email" },
@@ -34,7 +41,10 @@ function ClientRegistrationPage() {
         ]}
         onSubmit={handleCreate}
       />
-      <SimpleTable
+      </section>
+      
+      <section className="rounded-xl bg-[#ffffff] shadow-[0_4px_24px_rgba(24,28,30,0.04)] ring-1 ring-[#c4c6cf]/20 p-6 shadow-sm backdrop-blur-md">
+        <SimpleTable
         columns={[
           { key: "name", label: "Name" },
           { key: "email", label: "Email" },
@@ -43,6 +53,7 @@ function ClientRegistrationPage() {
         ]}
         rows={rows}
       />
+      </section>
     </div>
   );
 }

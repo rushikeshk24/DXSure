@@ -26,7 +26,7 @@ function PettyCashPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">
+      <h2 className="mb-4 text-2xl font-semibold text-neutral-100">
         Petty Cash Entry
       </h2>
       <SimpleForm

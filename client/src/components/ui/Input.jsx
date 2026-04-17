@@ -13,7 +13,7 @@ function Input({
   return (
     <div className={className}>
       {label && (
-        <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-neutral-300">
+        <label htmlFor={name} className="mb-1.5 block text-sm font-medium text-[#43474e]">
           {label}
         </label>
       )}
@@ -26,11 +26,11 @@ function Input({
         required={required}
         placeholder={placeholder}
         className={[
-          "w-full rounded-lg border bg-neutral-900/50 px-3.5 py-2.5 text-sm text-white transition duration-200 backdrop-blur-sm",
-          "placeholder:text-neutral-600 focus:outline-none focus:ring-2",
+          "w-full rounded-lg border bg-[#ffffff] px-3.5 py-2.5 text-sm text-[#181c1e] transition duration-200 backdrop-blur-sm",
+          "placeholder:text-[#74777f] focus:outline-none focus:ring-2",
           error
             ? "border-red-500/50 focus:border-red-500 focus:ring-red-500/20"
-            : "border-white/10 focus:border-emerald-500 focus:ring-emerald-500/20",
+            : "border-[#c4c6cf]/20 focus:border-[#0061a5] focus:ring-[#0061a5]/10",
         ].join(" ")}
         {...props}
       />

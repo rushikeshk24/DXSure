@@ -16,7 +16,7 @@ function DayPlanViewPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Day Plan View</h2>
+      <h2 className="mb-4 text-2xl font-semibold text-neutral-100">Day Plan View</h2>
       <SimpleTable
         columns={[
           { key: "task", label: "Task" },

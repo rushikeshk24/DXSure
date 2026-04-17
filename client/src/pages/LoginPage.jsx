@@ -28,11 +28,7 @@ function LoginPage() {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
 
-      if (response.data.user.role === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/employee");
-      }
+      navigate("/dashboard");
     } catch (apiError) {
       setError(apiError.response?.data?.message || "Login failed");
     } finally {

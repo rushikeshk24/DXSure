@@ -22,7 +22,7 @@ function ClientEnquiryPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Client Enquiry</h2>
+      <h2 className="mb-4 text-2xl font-semibold text-neutral-100">Client Enquiry</h2>
       <SimpleForm
         fields={[
           { name: "name", label: "Name", required: true },

@@ -10,11 +10,11 @@ function Button({
 }) {
   const variantStyles = {
     primary:
-      "bg-emerald-500 text-neutral-950 hover:bg-emerald-400 active:bg-emerald-600 focus-visible:ring-emerald-400 shadow-lg shadow-emerald-500/20",
+      "bg-gradient-to-br from-[#002045] to-[#1a365d] text-[#ffffff] hover:from-[#001b3c] hover:to-[#002045] active:from-[#001b3c] hover:to-[#002045] focus-visible:ring-[#0061a5] shadow-lg shadow-[#002045]/10",
     secondary:
-      "bg-neutral-800 text-neutral-200 hover:bg-neutral-700 active:bg-neutral-600 focus-visible:ring-neutral-500 border border-white/5",
+      "bg-[#ffffff] text-[#181c1e] hover:bg-neutral-700 active:bg-neutral-600 focus-visible:ring-neutral-500 border border-[#c4c6cf]/20",
     success:
-      "bg-emerald-600 text-white hover:bg-emerald-500 active:bg-emerald-700 focus-visible:ring-emerald-500",
+      "bg-emerald-600 text-[#181c1e] hover:bg-gradient-to-br from-[#002045] to-[#1a365d] active:bg-emerald-700 focus-visible:ring-emerald-500",
     danger:
       "bg-red-500/10 text-red-400 hover:bg-red-500/20 active:bg-red-500/30 border border-red-500/20 focus-visible:ring-red-500",
   };

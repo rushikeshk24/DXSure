@@ -43,7 +43,7 @@ function SimpleForm({
             <div>
               <label
                 htmlFor={field.name}
-                className="mb-1.5 block text-sm font-medium text-neutral-300"
+                className="mb-1.5 block text-sm font-medium text-[#43474e]"
               >
                 {field.label}
               </label>
@@ -52,12 +52,12 @@ function SimpleForm({
                 name={field.name}
                 value={formData[field.name] || ""}
                 onChange={handleChange}
-                className="w-full rounded-lg border border-white/10 bg-neutral-900/50 px-3.5 py-2.5 text-sm text-white transition duration-200 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 backdrop-blur-sm"
+                className="w-full rounded-lg border border-[#c4c6cf]/20 bg-[#ffffff] px-3.5 py-2.5 text-sm text-[#181c1e] transition duration-200 focus:border-[#0061a5] focus:outline-none focus:ring-2 focus:ring-[#0061a5]/10 backdrop-blur-sm"
                 required={field.required}
               >
-                <option value="" className="bg-neutral-900 text-neutral-400">Select {field.label}</option>
+                <option value="" className="bg-[#ffffff] text-[#43474e]">Select {field.label}</option>
                 {field.options.map((option) => (
-                  <option key={option.value} value={option.value} className="bg-neutral-900 text-white">
+                  <option key={option.value} value={option.value} className="bg-[#ffffff] text-[#181c1e]">
                     {option.label}
                   </option>
                 ))}

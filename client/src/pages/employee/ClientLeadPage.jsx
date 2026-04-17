@@ -26,7 +26,7 @@ function ClientLeadPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Client Lead</h2>
+      <h2 className="mb-4 text-2xl font-semibold text-neutral-100">Client Lead</h2>
 
       <SimpleForm
         fields={[

@@ -17,26 +17,34 @@ function TrackRecordPage() {
   }, []);
 
   return (
-    <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Track Record</h2>
+    <div className="w-full">
+      <div className="mb-8">
+        <h2 className="text-3xl font-extrabold text-[#181c1e] tracking-tighter">
+          Track Record Ledger
+        </h2>
+        <p className="mt-1 text-sm font-medium text-[#43474e]">
+          Global audit grid mapping Stitch database logs.
+        </p>
+      </div>
 
-      <div className="grid md:grid-cols-3 gap-3 mb-4">
+      <section className="rounded-xl bg-[#ffffff] shadow-[0_4px_24px_rgba(24,28,30,0.04)] ring-1 ring-[#c4c6cf]/20 p-6 shadow-sm backdrop-blur-md">
+        <div className="grid gap-3 mb-6 md:grid-cols-3">
         <input
           type="date"
           value={date}
           onChange={(event) => setDate(event.target.value)}
-          className="border rounded px-3 py-2 text-sm"
+          className="w-full rounded-lg bg-[#ffffff] shadow-[0_4px_24px_rgba(24,28,30,0.04)] ring-1 ring-[#c4c6cf]/20 px-3.5 py-2.5 text-[#181c1e] focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         />
         <input
           type="text"
           placeholder="User ID (optional)"
           value={user}
           onChange={(event) => setUser(event.target.value)}
-          className="border rounded px-3 py-2 text-sm"
+          className="w-full rounded-lg bg-[#ffffff] shadow-[0_4px_24px_rgba(24,28,30,0.04)] ring-1 ring-[#c4c6cf]/20 px-3.5 py-2.5 text-[#181c1e] focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
         />
         <button
           onClick={fetchRecords}
-          className="bg-blue-700 text-white rounded px-3 py-2 text-sm"
+          className="rounded-lg bg-gradient-to-br from-[#002045] to-[#1a365d] px-4 py-2 font-semibold text-[#181c1e] transition hover:from-[#001b3c] hover:to-[#002045] text-sm"
         >
           Apply Filter
         </button>
@@ -55,6 +63,7 @@ function TrackRecordPage() {
         ]}
         rows={records}
       />
+      </section>
     </div>
   );
 }

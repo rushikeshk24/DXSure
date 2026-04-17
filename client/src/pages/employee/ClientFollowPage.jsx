@@ -20,7 +20,7 @@ function ClientFollowPage() {
 
   return (
     <div>
-      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Client Follow</h2>
+      <h2 className="mb-4 text-2xl font-semibold text-neutral-100">Client Follow</h2>
       <div className="overflow-auto border rounded">
         <table className="w-full text-sm">
           <thead className="bg-gray-100">
